@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="ALTech PDF is an independent project focused on simple, free PDF tools, local file processing, and a no-account experience.">
+  <title>ALTech PDF — Simple PDF tools. Your files stay yours.</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1220;
+      --panel: #111c2e;
+      --panel-2: #152238;
+      --text: #edf3ff;
+      --muted: #a9b7cc;
+      --line: rgba(190, 210, 240, .15);
+      --accent: #7db7ff;
+      --accent-2: #b9d9ff;
+      --good: #8fe0c0;
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: radial-gradient(ellipse at 80% 0%, #182b48 0, var(--bg) 45%);
+      color: var(--text); font: 16px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: var(--accent-2); text-underline-offset: 4px; }
+    a:hover { color: #fff; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    header { border-bottom: 1px solid var(--line); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 750; letter-spacing: -.03em; font-size: 1.08rem; text-decoration: none; color: var(--text); }
+    .mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(145deg, #9acbff, #3978cb); color: #07111f; font-weight: 900; }
+    nav { display: flex; flex-wrap: wrap; gap: 20px; font-size: .92rem; }
+    nav a { color: var(--muted); text-decoration: none; }
+    nav a:hover { color: var(--text); }
+    .hero { padding: 92px 0 76px; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; font-size: .78rem; font-weight: 750; letter-spacing: .15em; }
+    h1 { max-width: 850px; margin: 14px 0 20px; font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.04; letter-spacing: -.065em; }
+    h1 span { color: var(--accent); }
+    .lead { max-width: 700px; color: var(--muted); font-size: clamp(1.08rem, 2vw, 1.28rem); }
+    .pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+    .pill { border: 1px solid var(--line); background: rgba(255,255,255,.035); border-radius: 999px; padding: 7px 13px; font-size: .88rem; color: var(--accent-2); }
+    section { padding: 58px 0; border-top: 1px solid var(--line); }
+    .section-head { max-width: 720px; margin-bottom: 28px; }
+    h2 { margin: 0 0 12px; font-size: clamp(1.8rem, 3vw, 2.65rem); line-height: 1.15; letter-spacing: -.04em; }
+    h3 { margin: 0 0 8px; font-size: 1.12rem; }
+    p { margin: 0 0 14px; }
+    .muted { color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .card { padding: 24px; border: 1px solid var(--line); background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.018)); border-radius: 18px; }
+    .icon { display: grid; place-items: center; width: 42px; height: 42px; margin-bottom: 16px; border-radius: 13px; background: #1c3452; color: var(--accent-2); font-size: 1.15rem; }
+    .callout { padding: 22px 24px; border-left: 3px solid var(--accent); background: rgba(125,183,255,.07); border-radius: 0 14px 14px 0; }
+    .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; counter-reset: step; }
+    .step { padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); }
+    .step:before { counter-increment: step; content: "0" counter(step); display: block; margin-bottom: 12px; color: var(--accent); font-weight: 800; letter-spacing: .08em; }
+    .small { font-size: .9rem; }
+    footer { padding: 28px 0 38px; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 700px) {
+      .wrap { width: min(100% - 28px, var(--max)); }
+      .nav { align-items: flex-start; flex-direction: column; padding: 18px 0; gap: 12px; }
+      nav { gap: 13px; }
+      .hero { padding: 64px 0 52px; }
+      section { padding: 42px 0; }
+      .grid, .steps { grid-template-columns: 1fr; }
+      .card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="ALTech PDF home"><span class="mark">A</span><span>ALTech PDF</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#principles">Principles</a>
+        <a href="#files">Your files</a>
+        <a href="#free">Free access</a>
+        <a href="#roadmap">Development</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="wrap hero">
+      <div class="eyebrow">An independent project</div>
+      <h1>PDF tools should be <span>simple, free, and private.</span></h1>
+      <p class="lead">ALTech PDF is being built around a straightforward idea: everyday PDF tasks should not require an account, a complicated workflow, or handing your documents to a remote service.</p>
+      <div class="pills">
+        <span class="pill">Free to use</span>
+        <span class="pill">No account or login</span>
+        <span class="pill">Local PDF processing</span>
+        <span class="pill">Designed for everyday tasks</span>
+      </div>
+    </div>
+
+    <section id="principles">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">01 / The idea</div>
+          <h2>Useful tools, without unnecessary barriers.</h2>
+          <p class="muted">ALTech PDF is an independent software project, not a claim of a large company or a promise that every planned feature is already finished. The goal is to make common PDF operations accessible through a clear, easy-to-use interface.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="icon" aria-hidden="true">↗</div>
+            <h3>Easy to use</h3>
+            <p class="muted">Find a tool, choose a document, make the change, and save the result. The interface should help users complete a task without unnecessary steps.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">○</div>
+            <h3>No account required</h3>
+            <p class="muted">The intended experience does not require users to create an ALTech PDF account or log in to use the available tools.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">◇</div>
+            <h3>Free access</h3>
+            <p class="muted">The project aims to keep its available PDF tools free to use, without hidden charges for ordinary access to those features.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">↻</div>
+            <h3>Improved over time</h3>
+            <p class="muted">Features are tested and refined over time. Availability and behavior can differ by app version, and planned features are not presented as completed features.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="files">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">02 / Privacy and file handling</div>
+          <h2>Your documents stay on your device.</h2>
+          <p class="muted">ALTech PDF is designed to process PDF documents locally on the device. The app's PDF-processing flow uses on-device libraries rather than sending documents to an ALTech PDF processing server.</p>
+        </div>
+        <div class="callout">
+          <p><strong>What this means:</strong> the PDF files you choose for processing are not uploaded to ALTech PDF servers, and the project does not receive or keep copies of those documents through a remote PDF-processing service.</p>
+        </div>
+        <div style="height:18px"></div>
+        <p class="muted">This statement is about the handling of document contents. It does not mean the app or any third-party services necessarily collect no technical information. Device, usage, analytics, or advertising data may be handled depending on the app version, platform settings, and integrated services. See the separate Privacy Policy for details.</p>
+        <p><a href="https://github.com/Alexandru95Py/altech-privacy-policy">Read the Privacy Policy on GitHub</a></p>
+      </div>
+    </section>
+
+    <section id="free">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">03 / A transparent model</div>
+          <h2>Free to use. Intended to be supported by ads.</h2>
+          <p class="muted">The planned sustainability model for ALTech PDF is advertising through Google AdMob. This is intended to help support maintenance and continued development while keeping the available tools free for users.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>No paid account</h3>
+            <p class="muted">The core experience is designed without a mandatory account or login.</p>
+          </article>
+          <article class="card">
+            <h3>No hidden access fee</h3>
+            <p class="muted">The goal is to fund the project through advertising rather than charging users just to access the available tools.</p>
+          </article>
+        </div>
+        <p class="muted small" style="margin-top:18px">Advertising availability and implementation may vary by release. Third-party advertising services may process data as described in the Privacy Policy and their own disclosures.</p>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">04 / Development</div>
+          <h2>Built carefully, one improvement at a time.</h2>
+          <p class="muted">ALTech PDF is an ongoing project. Development priorities are reliability, a straightforward interface, and making the available PDF tools work as expected before adding unnecessary complexity.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <h3>Make the basics reliable</h3>
+            <p class="muted">Test existing tools, improve file handling, and fix issues without breaking unrelated features.</p>
+          </article>
+          <article class="step">
+            <h3>Keep the experience simple</h3>
+            <p class="muted">Prioritize clear navigation and useful functionality over features that add complexity without enough value.</p>
+          </article>
+          <article class="step">
+            <h3>Add features responsibly</h3>
+            <p class="muted">New tools, including scanning, may be considered for future updates after they are implemented and tested.</p>
+          </article>
+        </div>
+        <p class="muted small" style="margin-top:22px">This page describes the project's principles and direction. It is not a guarantee that every possible tool or future feature is available in the current release.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>© 2026 Goga Alexandru · ALTech PDF. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="https://github.com/Alexandru95Py/altech-privacy-policy">Privacy Policy</a>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
